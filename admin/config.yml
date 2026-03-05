@@ -14,40 +14,44 @@ collections:
     # We group all editable JSON files under this single collection 
     # so they all appear on one page in the CMS sidebar.
     files:
-      - label: "Architects (Coaches)"
-        name: "coaches"
-        file: "content/architects.json"
+      - label: "Homepage Configurations"
+        name: "homepage"
+        file: "content/data.json"
         fields:
-          - label: "Coaches List"
-            name: "items"
-            widget: "list"
+          - label: "Architects (Coaches)"
+            name: "coaches"
+            widget: "object"
             fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Role/Title", name: "title", widget: "string"}
-              - {label: "Quote", name: "quote", widget: "text"}
-              - {label: "Photograph", name: "image", widget: "image"}
+              - label: "Coaches List"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role/Title", name: "title", widget: "string"}
+                  - {label: "Quote", name: "quote", widget: "text"}
+                  - {label: "Photograph", name: "image", widget: "image"}
 
-      - label: "Program Tiers (Atelier)"
-        name: "tiers"
-        file: "content/program_tiers.json"
-        fields:
-          - label: "Program Cards"
-            name: "items"
-            widget: "list"
+          - label: "Program Tiers (Atelier)"
+            name: "tiers"
+            widget: "object"
             fields:
-              - {label: "Floor Prefix (e.g. 4F)", name: "floor", widget: "string"}
-              - {label: "Section Name (e.g. The Forge)", name: "section", widget: "string"}
-              - {label: "Sub-title", name: "subtitle", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Iconify Name", name: "icon", widget: "string"}
+              - label: "Program Cards"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Floor Prefix (e.g. 4F)", name: "floor", widget: "string"}
+                  - {label: "Section Name (e.g. The Forge)", name: "section", widget: "string"}
+                  - {label: "Sub-title", name: "subtitle", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Iconify Name", name: "icon", widget: "string"}
 
-      - label: "Common Questions (FAQ)"
-        name: "questions"
-        file: "content/faq.json"
-        fields:
-          - label: "Questions List"
-            name: "items"
-            widget: "list"
+          - label: "Common Questions (FAQ)"
+            name: "questions"
+            widget: "object"
             fields:
-              - {label: "Question", name: "question", widget: "string"}
-              - {label: "Answer", name: "answer", widget: "text"}
+              - label: "Questions List"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Question", name: "question", widget: "string"}
+                  - {label: "Answer", name: "answer", widget: "text"}
