@@ -8,6 +8,48 @@
     <title>Content Manager | House of Milon</title>
 </head>
 
+<!-- Custom Styling for CMS Login -->
+<style>
+    /* Hide the default Decap logo SVG */
+    [class*="AppHeader-AppHeader-header-Logo-Logo-logo"] svg,
+    .nc-appHeader-logo svg,
+    [class*="Login-Login-logo"] svg,
+    .nc-login-logo svg {
+        display: none !important;
+    }
+
+    /* Inject House of Milon Logo */
+    [class*="AppHeader-AppHeader-header-Logo-Logo-logo"],
+    .nc-appHeader-logo,
+    [class*="Login-Login-logo"],
+    .nc-login-logo {
+        background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b9d77d2c-3756-4635-b618-55af31e29427_320w.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 250px !important;
+        height: 80px !important;
+        display: block !important;
+        margin: 0 auto 30px auto !important;
+    }
+
+    /* Login Button Styling */
+    [class*="Login-Login-button"],
+    .nc-login-button {
+        background-color: #973f55 !important;
+        color: #F4F0EB !important;
+        border-radius: 4px !important;
+        font-family: "Manrope", sans-serif !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    [class*="Login-Login-button"]:hover,
+    .nc-login-button:hover {
+        background-color: #833549 !important;
+    }
+</style>
+
 <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
