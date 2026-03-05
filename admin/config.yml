@@ -9,6 +9,16 @@ media_folder: "assets" # Folder where uploaded files will be saved relative to b
 public_folder: "assets" # The base path for uploaded files when they are served
 
 collections:
+  - name: "videos"
+    label: "Homepage Videos"
+    files:
+      - label: "Hero Video Backgrounds"
+        name: "hero"
+        file: "content/videos.json"
+        fields:
+          - {label: "Desktop Video URL (YouTube Embed)", name: "desktop", widget: "youtube"}
+          - {label: "Mobile Video URL (YouTube Embed)", name: "mobile", widget: "youtube"}
+
   - name: "architects"
     label: "Architects (Coaches)"
     # We will save this as a single JSON file instead of multiple markdown files
@@ -56,13 +66,3 @@ collections:
             fields:
               - {label: "Question", name: "question", widget: "string"}
               - {label: "Answer", name: "answer", widget: "text"}
-
-  - name: "videos"
-    label: "Homepage Videos"
-    files:
-      - label: "Hero Video Backgrounds"
-        name: "hero"
-        file: "content/videos.json"
-        fields:
-          - {label: "Desktop Video URL (YouTube Embed)", name: "desktop", widget: "youtube"}
-          - {label: "Mobile Video URL (YouTube Embed)", name: "mobile", widget: "youtube"}
