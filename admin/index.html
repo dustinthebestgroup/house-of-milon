@@ -10,20 +10,29 @@
 
 <!-- Custom Styling for CMS Login -->
 <style>
-    /* Hide the default Decap logo SVG */
+    /* Apply Milon Red to the full background */
+    body,
+    div[data-app-id="nc-root"],
+    .nc-login-container {
+        background-color: #973f55 !important;
+    }
+
+    /* Hide the default Decap logo SVG and bottom footer */
     [class*="AppHeader-AppHeader-header-Logo-Logo-logo"] svg,
     .nc-appHeader-logo svg,
     [class*="Login-Login-logo"] svg,
-    .nc-login-logo svg {
+    .nc-login-logo svg,
+    a[href*="decapcms.org"],
+    a[href*="netlifycms.org"] {
         display: none !important;
     }
 
-    /* Inject House of Milon Logo */
+    /* Inject House of Milon White Logo */
     [class*="AppHeader-AppHeader-header-Logo-Logo-logo"],
     .nc-appHeader-logo,
     [class*="Login-Login-logo"],
     .nc-login-logo {
-        background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b9d77d2c-3756-4635-b618-55af31e29427_320w.png');
+        background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a49802a8-7314-43a6-a9f6-bf6200eb8750_320w.png');
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -33,20 +42,21 @@
         margin: 0 auto 30px auto !important;
     }
 
-    /* Login Button Styling */
+    /* Login Button Styling (Inverted for Red BG) */
     [class*="Login-Login-button"],
     .nc-login-button {
-        background-color: #973f55 !important;
-        color: #F4F0EB !important;
+        background-color: #F4F0EB !important;
+        color: #973f55 !important;
         border-radius: 4px !important;
         font-family: "Manrope", sans-serif !important;
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-weight: 600 !important;
     }
 
     [class*="Login-Login-button"]:hover,
     .nc-login-button:hover {
-        background-color: #833549 !important;
+        background-color: #ffffff !important;
     }
 </style>
 
