@@ -78,6 +78,43 @@
 <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Custom YouTube Embed Widget -->
+    <script>
+        var YouTubeControl = createClass({
+            handleChange: function (e) {
+                this.props.onChange(e.target.value);
+            },
+
+            render: function () {
+                var value = this.props.value || '';
+                return h('div', { className: this.props.classNameWrapper, style: { padding: '10px' } },
+                    h('input', {
+                        id: this.props.forID,
+                        className: this.props.classNameWrapper,
+                        type: 'text',
+                        value: value,
+                        onChange: this.handleChange,
+                        style: { marginBottom: '16px', padding: '12px', width: '100%', border: '2px solid #dfdfe3', borderRadius: '5px' }
+                    }),
+                    value ? h('iframe', {
+                        src: value,
+                        style: { width: '100%', aspectRatio: '16/9', border: '0', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' },
+                        allow: "autoplay; encrypted-media",
+                        allowFullScreen: true
+                    }) : h('div', { style: { padding: '20px', textAlign: 'center', background: '#f4f4f4', borderRadius: '8px', color: '#666' } }, 'Enter a YouTube embed URL to see preview.')
+                );
+            }
+        });
+
+        var YouTubePreview = createClass({
+            render: function () {
+                return h('div', {}, this.props.value);
+            }
+        });
+
+        CMS.registerWidget('youtube', YouTubeControl, YouTubePreview);
+    </script>
 </body>
 
 </html>
