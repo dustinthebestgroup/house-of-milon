@@ -3,7 +3,7 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master/main)
 
-logo_url: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a49802a8-7314-43a6-a9f6-bf6200eb8750_320w.png"
+logo_url: "../assets/Milon%20Logo/Milon_BW-Logo-WHITE.png"
 media_folder: "assets" # Folder where uploaded files will be saved relative to base
 public_folder: "assets" # The base path for uploaded files when they are served
 
