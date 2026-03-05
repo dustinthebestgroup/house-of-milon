@@ -56,3 +56,14 @@ collections:
             fields:
               - {label: "Question", name: "question", widget: "string"}
               - {label: "Answer", name: "answer", widget: "text"}
+
+  - name: "videos"
+    label: "Homepage Videos"
+    files:
+      - label: "Hero Video Backgrounds"
+        name: "hero"
+        file: "content/videos.json"
+        fields:
+          - {label: "Desktop Video URL (YouTube Embed)", name: "desktop", widget: "string"}
+          - {label: "Mobile Video URL (YouTube Embed)", name: "mobile", widget: "string"}
+          - {label: "Full Feature Video (Click to Watch - YouTube Embed URL)", name: "full_video", widget: "string", required: false}

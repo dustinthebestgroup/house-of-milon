@@ -326,14 +326,12 @@
         alt="Architectural Gym" class="w-full h-full object-cover object-center grayscale mix-blend-overlay opacity-40">
       <div class="overflow-hidden absolute top-0 right-0 bottom-0 left-0">
         <!-- Mobile Vertical Video -->
-        <iframe
-          src="https://www.youtube.com/embed/vvud2ZKFA-c?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=vvud2ZKFA-c&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;disablekb=1&amp;modestbranding=1"
+        <iframe id="hero-video-mobile" src=""
           class="absolute w-full h-full md:hidden scale-[1.35] pointer-events-none object-cover"
           allow="autoplay; encrypted-media" frameborder="0"></iframe>
 
         <!-- Desktop Horizontal Video -->
-        <iframe
-          src="https://www.youtube.com/embed/imZIU5KI47U?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=imZIU5KI47U&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;disablekb=1&amp;modestbranding=1"
+        <iframe id="hero-video-desktop" src=""
           class="absolute w-full h-full hidden md:block scale-[1.5] md:portrait:scale-[2.6] pointer-events-none object-cover"
           allow="autoplay; encrypted-media" frameborder="0"></iframe>
 
@@ -367,15 +365,38 @@
           House of Milon
         </a>
       </div>
+
+      <!-- Watch Video Button -->
+      <button id="play-video-btn"
+        class="mt-8 flex items-center justify-center space-x-2 mx-auto text-[#F4F0EB] hover:text-[#A88B68] transition-colors duration-300 group">
+        <iconify-icon icon="solar:play-circle-outline" class="text-3xl"></iconify-icon>
+        <span class="text-xs uppercase tracking-[0.2em] font-medium">Watch the Film</span>
+      </button>
+
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
-      <span class="text-[10px] uppercase tracking-widest text-[#F4F0EB]">
-        Explore
-      </span>
-      <div class="w-[1px] h-12 bg-gradient-to-b from-[#F4F0EB] to-transparent"></div>
+    <!-- Video Modal -->
+    <div id="video-modal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center bg-[#121212]/95 backdrop-blur-sm opacity-0 transition-opacity duration-500">
+      <button id="close-video-btn"
+        class="absolute top-6 right-6 text-[#F4F0EB] hover:text-[#A88B68] transition-colors duration-300 z-50">
+        <iconify-icon icon="solar:close-circle-line-duotone" class="text-4xl"></iconify-icon>
+      </button>
+      <div class="relative w-full max-w-5xl aspect-video px-4 shadow-2xl">
+        <iframe id="hero-video-full" src="" class="w-full h-full border-0 absolute top-0 left-0"
+          allow="autoplay; fullscreen; encrypted-media"></iframe>
+      </div>
     </div>
+
+  </header>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+    <span class="text-[10px] uppercase tracking-widest text-[#F4F0EB]">
+      Explore
+    </span>
+    <div class="w-[1px] h-12 bg-gradient-to-b from-[#F4F0EB] to-transparent"></div>
+  </div>
   </header>
 
   <!-- Brand Statement / Concept (Start of Chalk Black) -->
@@ -1200,6 +1221,57 @@
     }
 
     document.addEventListener('DOMContentLoaded', loadFAQs);
+
+    // Fetch and Load Hero Videos
+    async function loadVideos() {
+      try {
+        const response = await fetch('./content/videos.json');
+        if (!response.ok) return; // Silent fail if no video config exits
+
+        const data = await response.json();
+        const desktopVideo = document.getElementById('hero-video-desktop');
+        const mobileVideo = document.getElementById('hero-video-mobile');
+
+        if (desktopVideo && data.desktop) {
+          desktopVideo.src = data.desktop;
+        }
+        if (mobileVideo && data.mobile) {
+          mobileVideo.src = data.mobile;
+        }
+
+        // Full Video logic
+        const fullVideoIframe = document.getElementById('hero-video-full');
+        const playBtn = document.getElementById('play-video-btn');
+        const closeBtn = document.getElementById('close-video-btn');
+        const modal = document.getElementById('video-modal');
+
+        if (fullVideoIframe && playBtn && modal && data.full_video) {
+          playBtn.addEventListener('click', () => {
+            fullVideoIframe.src = data.full_video; // Load dynamically to prevent autoplay in background
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // small delay to allow display to change before animating opacity
+            setTimeout(() => modal.classList.remove('opacity-0'), 50);
+          });
+
+          closeBtn.addEventListener('click', () => {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+              modal.classList.add('hidden');
+              modal.classList.remove('flex');
+              fullVideoIframe.src = ''; // Stop video playback
+            }, 500); // match transition duration
+          });
+        } else if (playBtn && !data.full_video) {
+          playBtn.style.display = 'none'; // hide button if no video configured in CMS
+        }
+
+      } catch (error) {
+        console.error('Error loading videos:', error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadVideos);
 
     // Netlify Identity Login Redirect logic
     if (window.netlifyIdentity) {
