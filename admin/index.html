@@ -128,28 +128,24 @@
         }
 
         /* ---- Editor Layout Breakout ---- */
-        /* React-split-pane uses aggressive absolute positioning and flexible inline styles.
-           We must strip everything back to basic document flow for mobile. */
-
-        /* The main container surrounding the SplitPane */
+        /* Ultimate override: extract the control pane out of the split container constraints naturally. */
         [class*="Editor-Editor-container"] {
-            display: block !important;
-            height: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
             min-height: 100vh !important;
-            overflow: visible !important;
         }
 
-        /* The flex wrapper containing the two panes */
+        /* The React SplitPane wrapper is completely unreliable on mobile. Hide its structure, but let children escape. */
         .SplitPane,
         [class*="SplitPane"] {
             display: block !important;
-            position: static !important;
-            width: 100% !important;
-            height: auto !important;
+            position: relative !important;
             overflow: visible !important;
+            height: auto !important;
+            min-height: 600px !important;
         }
 
-        /* The left pane (input fields) */
+        /* Input Fields: Force them to block, remove flex limits */
         .Pane1,
         [class*="Pane1"],
         [class*="pane1"],
@@ -159,12 +155,13 @@
             width: 100% !important;
             max-width: 100vw !important;
             height: auto !important;
-            min-height: 600px !important;
-            flex: none !important;
             overflow-y: visible !important;
+            padding: 15px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
-        /* The right pane (preview) and the drag handle */
+        /* Hide Preview & Resizer */
         .Pane2,
         [class*="Pane2"],
         [class*="pane2"],
@@ -172,9 +169,6 @@
         .Resizer,
         [class*="Resizer"] {
             display: none !important;
-            width: 0 !important;
-            height: 0 !important;
-            flex: none !important;
         }
 
         /* ---- Toolbar ---- */
