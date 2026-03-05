@@ -1,32 +1,32 @@
 {
-    "items": [
-        {
-            "floor": "4F",
-            "section": "The Forge",
-            "subtitle": "Milon Private Fitness",
-            "description": "High-touch, personalized training with Architects. Focus: strength, body composition, performance, accountability.",
-            "icon": "solar:dumbbell-large-linear"
-        },
-        {
-            "floor": "3F",
-            "section": "The Studio",
-            "subtitle": "Milon Pilates",
-            "description": "Precision movement, control, alignment, core integrity. Focus: posture, mobility, stability, intelligent conditioning.",
-            "icon": "solar:stretching-round-outline"
-        },
-        {
-            "floor": "2F",
-            "section": "The Restoration Floor",
-            "subtitle": "Milon Wellness & Recovery",
-            "description": "Regeneration and long-term resilience. Focus: recovery protocols, restoration, nervous system reset, injury prevention.",
-            "icon": "solar:sleeping-outline"
-        },
-        {
-            "floor": "1F",
-            "section": "The Refectory",
-            "subtitle": "Cafe",
-            "description": "Daily ritual, communal, and nourishment. Focus: clean fuel, conversation, lifestyle consistency.",
-            "icon": "mingcute:chef-hat-line"
-        }
-    ]
+  "items": [
+    {
+      "floor": "4F",
+      "section": "The Forge",
+      "subtitle": "Milon Private Fitness",
+      "description": "High-touch, personalized training with Architects. Focus: strength, body composition, performance, accountability.",
+      "icon": "solar:dumbbell-large-linear"
+    },
+    {
+      "floor": "3F",
+      "section": "The Studio",
+      "subtitle": "Milon Pilates",
+      "description": "Precision movement, control, alignment, core integrity. Focus: posture, mobility, stability, intelligent conditioning.",
+      "icon": "solar:stretching-round-outline"
+    },
+    {
+      "floor": "2F",
+      "section": "The Rejuvenation Floor",
+      "subtitle": "Milon Wellness & Recovery",
+      "description": "Regeneration and long-term resilience. Focus: recovery protocols, restoration, nervous system reset, injury prevention.",
+      "icon": "solar:sleeping-outline"
+    },
+    {
+      "floor": "1F",
+      "section": "The Refectory",
+      "subtitle": "Cafe",
+      "description": "Daily ritual, communal, and nourishment. Focus: clean fuel, conversation, lifestyle consistency.",
+      "icon": "mingcute:chef-hat-line"
+    }
+  ]
 }
