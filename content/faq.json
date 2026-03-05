@@ -1,20 +1,24 @@
 {
-    "items": [
-        {
-            "question": "Is this a traditional gym?",
-            "answer": "No. House of Milon operates on a focused, architectural approach to strength and recovery. We provide a distraction-free environment dedicated exclusively to progressive overload and deliberate restoration, rather than generalized fitness."
-        },
-        {
-            "question": "Do I need to be an advanced athlete to join?",
-            "answer": "Not at all. Our philosophy of incremental gains applies to every starting point. Our Architects design programs customized to your current physiology, focusing on building a solid foundation first before advancing."
-        },
-        {
-            "question": "What is included in the membership?",
-            "answer": "Membership grants access to The Forge (private fitness floor), The Restoration Floor (sauna suites, cold plunge, compression therapy), and priority booking for The Studio (Pilates) and individual Architect sessions."
-        },
-        {
-            "question": "Can I tour the facility before committing?",
-            "answer": "Yes. We require all prospective members to book a Private Tour. This ensures that our environment aligns with your training goals and maintains the focused atmosphere of the House."
-        }
-    ]
+  "items": [
+    {
+      "question": "Is this a traditional gym?",
+      "answer": "No. House of Milon operates on a focused, architectural approach to strength and recovery. We provide a distraction-free environment dedicated exclusively to progressive overload and deliberate restoration, rather than generalized fitness."
+    },
+    {
+      "question": "Do I need to be an advanced athlete to join?",
+      "answer": "Not at all. Our philosophy of incremental gains applies to every starting point. Our Architects design programs customized to your current physiology, focusing on building a solid foundation first before advancing."
+    },
+    {
+      "question": "What is included in the membership?",
+      "answer": "Membership grants access to The Forge (private fitness floor), The Restoration Floor (sauna suites, cold plunge, compression therapy), and priority booking for The Studio (Pilates) and individual Architect sessions."
+    },
+    {
+      "question": "Can I tour the facility before committing?",
+      "answer": "Yes. We require all prospective members to book a Private Tour. This ensures that our environment aligns with your training goals and maintains the focused atmosphere of the House."
+    },
+    {
+      "question": "This is Damon, Can I add my own questions?",
+      "answer": "Most Certainly. The CMS integration is ahead of schedule."
+    }
+  ]
 }
