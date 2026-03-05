@@ -77,162 +77,111 @@
     /* Mobile Responsive Overrides for Decap CMS */
     @media (max-width: 768px) {
 
-        /* Prevent any global horizontal overflow */
+        /* Prevent horizontal scrollbar on the page */
         html,
         body {
             overflow-x: hidden !important;
-            max-width: 100vw !important;
         }
 
-        /* Force all main CMS containers to stay within viewport */
-        #nc-root,
-        [data-app-id="nc-root"],
-        [class*="App-App"],
-        [class*="UI-UI"],
-        main,
-        section {
-            width: 100% !important;
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-            min-width: 0 !important;
-        }
-
-        /* Stack the main layout (sidebar on top, content below) */
-        main,
-        [class*="App-App-main"] {
-            flex-direction: column !important;
-        }
-
-        /* ---- Sidebar ---- */
-        [class*="Sidebar"],
+        /* ---- Sidebar: stack on top, scroll horizontally ---- */
         aside {
             width: 100% !important;
-            min-width: 0 !important;
-            max-width: 100vw !important;
             height: auto !important;
             position: relative !important;
-            flex-direction: column !important;
-            padding: 12px !important;
+            padding: 12px 16px !important;
             border-right: none !important;
             border-bottom: 2px solid #e0e4e7 !important;
+            box-sizing: border-box !important;
         }
 
-        /* Sidebar nav: horizontal scrollable tabs */
-        [class*="Sidebar"] ul,
         aside ul {
             display: flex !important;
             flex-direction: row !important;
             overflow-x: auto !important;
             -webkit-overflow-scrolling: touch !important;
             gap: 12px !important;
-            padding: 4px 0 12px 0 !important;
+            padding: 6px 0 !important;
             margin: 0 !important;
             scrollbar-width: none !important;
         }
 
-        [class*="Sidebar"] ul::-webkit-scrollbar,
         aside ul::-webkit-scrollbar {
             display: none !important;
         }
 
-        aside li,
-        [class*="Sidebar"] li {
-            min-width: fit-content !important;
+        aside li {
             white-space: nowrap !important;
             margin: 0 !important;
         }
 
-        /* ---- Editor ---- */
-        /* Force single-column editor (remove side-by-side split) */
-        [class*="Editor"] {
+        /* Stack main layout (sidebar + content) vertically */
+        main {
             flex-direction: column !important;
             overflow-x: hidden !important;
-            min-width: 0 !important;
         }
 
-        /* Kill preview pane + resizer completely on mobile */
-        [class*="PreviewPane"],
-        [class*="EditorPreviewSplitPane"],
-        [class*="ResizableArea"],
-        [class*="Resizer"],
-        [class*="previewPane"],
-        [class*="preview-pane"] {
-            display: none !important;
-            width: 0 !important;
-            min-width: 0 !important;
-        }
-
-        /* Editor Control Pane: full width */
-        [class*="ControlPane"],
-        [class*="controlPane"],
-        [class*="EditorControlPane"] {
+        /* ---- Content area: full width ---- */
+        main>div,
+        main>section {
             width: 100% !important;
-            max-width: 100vw !important;
-            min-width: 0 !important;
-            padding: 12px !important;
             box-sizing: border-box !important;
+        }
+
+        /* ---- Kill the SplitPane/resizer that causes side-by-side layout ---- */
+        /* These class names are from the react-split-pane library Decap uses */
+        .Pane2,
+        [class*="Pane2"],
+        [class*="pane2"],
+        [class*="preview-pane"],
+        [class*="PreviewPane"],
+        .Resizer,
+        [class*="Resizer"] {
+            display: none !important;
+        }
+
+        /* SplitPane wrapper: force it to render at full width, column stack */
+        .SplitPane,
+        [class*="SplitPane"] {
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
+            flex-direction: column !important;
+        }
+
+        /* Pane1 (editor fields): take full available width */
+        .Pane1,
+        [class*="Pane1"],
+        [class*="pane1"] {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
+            overflow-y: auto !important;
         }
 
         /* ---- Toolbar ---- */
-        [class*="Toolbar"],
-        [class*="toolbar"] {
-            flex-wrap: wrap !important;
+        header {
             height: auto !important;
-            min-height: 48px !important;
+            min-height: 52px !important;
+            flex-wrap: wrap !important;
             padding: 8px 12px !important;
-            gap: 8px !important;
             box-sizing: border-box !important;
-            width: 100% !important;
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
         }
 
-        /* Shrink toolbar text */
-        [class*="Toolbar"] span,
-        [class*="toolbar"] span {
-            font-size: 12px !important;
-            white-space: nowrap !important;
+        /* Shrink the "Writing in..." breadcrumb text  */
+        header span {
+            font-size: 11px !important;
+            max-width: 45vw !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
-            max-width: 40vw !important;
-        }
-
-        /* ---- App Header ---- */
-        [class*="AppHeader"],
-        header {
-            padding: 8px 12px !important;
-            height: auto !important;
-            min-height: 56px !important;
-            justify-content: space-between !important;
-            flex-wrap: nowrap !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
+            white-space: nowrap !important;
         }
 
         /* Shrink Logo on Mobile */
         [class*="Logo"],
         .nc-appHeader-logo {
-            width: 120px !important;
-            height: 40px !important;
+            width: 110px !important;
+            height: 36px !important;
             margin: 0 !important;
-        }
-
-        /* ---- Collection Cards ---- */
-        [class*="CollectionPage"],
-        [class*="Collection"] {
-            width: 100% !important;
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-            padding: 12px !important;
-            box-sizing: border-box !important;
-        }
-
-        [class*="EntryCard"],
-        [class*="entry-card"],
-        [class*="ListCard"] {
-            width: 100% !important;
-            margin: 0 0 12px 0 !important;
-            box-sizing: border-box !important;
         }
     }
 </style>
