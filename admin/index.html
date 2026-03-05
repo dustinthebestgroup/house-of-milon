@@ -77,90 +77,162 @@
     /* Mobile Responsive Overrides for Decap CMS */
     @media (max-width: 768px) {
 
-        /* Stack the main layout (sidebar + content) */
-        main {
+        /* Prevent any global horizontal overflow */
+        html,
+        body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+
+        /* Force all main CMS containers to stay within viewport */
+        #nc-root,
+        [data-app-id="nc-root"],
+        [class*="App-App"],
+        [class*="UI-UI"],
+        main,
+        section {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            min-width: 0 !important;
+        }
+
+        /* Stack the main layout (sidebar on top, content below) */
+        main,
+        [class*="App-App-main"] {
             flex-direction: column !important;
         }
 
-        /* Make sidebar horizontal and scrollable */
-        [class*="Sidebar-Sidebar-container"],
+        /* ---- Sidebar ---- */
+        [class*="Sidebar"],
         aside {
             width: 100% !important;
+            min-width: 0 !important;
+            max-width: 100vw !important;
             height: auto !important;
             position: relative !important;
-            display: flex !important;
             flex-direction: column !important;
-            padding: 15px !important;
+            padding: 12px !important;
             border-right: none !important;
-            border-bottom: 1px solid #e0e4e7 !important;
+            border-bottom: 2px solid #e0e4e7 !important;
         }
 
-        [class*="Sidebar-Sidebar-heading"]::after {
-            display: block !important;
-            margin-bottom: 10px !important;
-        }
-
-        ul[class*="Sidebar-Sidebar-navList"],
+        /* Sidebar nav: horizontal scrollable tabs */
+        [class*="Sidebar"] ul,
         aside ul {
             display: flex !important;
             flex-direction: row !important;
             overflow-x: auto !important;
-            gap: 15px !important;
-            padding-bottom: 10px !important;
-        }
-
-        li[class*="Sidebar-Sidebar-navItem"],
-        aside li {
+            -webkit-overflow-scrolling: touch !important;
+            gap: 12px !important;
+            padding: 4px 0 12px 0 !important;
             margin: 0 !important;
-            white-space: nowrap !important;
+            scrollbar-width: none !important;
         }
 
-        /* Editor Layout: Hide preview on mobile, make editor full width */
-        [class*="Editor-Editor-container"] {
-            flex-direction: column !important;
-        }
-
-        [class*="Editor-Editor-editorPreviewPane"] {
+        [class*="Sidebar"] ul::-webkit-scrollbar,
+        aside ul::-webkit-scrollbar {
             display: none !important;
         }
 
-        [class*="Editor-Editor-editorControlPane"],
-        [class*="ControlPane-ControlPane-container"] {
+        aside li,
+        [class*="Sidebar"] li {
+            min-width: fit-content !important;
+            white-space: nowrap !important;
+            margin: 0 !important;
+        }
+
+        /* ---- Editor ---- */
+        /* Force single-column editor (remove side-by-side split) */
+        [class*="Editor"] {
+            flex-direction: column !important;
+            overflow-x: hidden !important;
+            min-width: 0 !important;
+        }
+
+        /* Kill preview pane + resizer completely on mobile */
+        [class*="PreviewPane"],
+        [class*="EditorPreviewSplitPane"],
+        [class*="ResizableArea"],
+        [class*="Resizer"],
+        [class*="previewPane"],
+        [class*="preview-pane"] {
+            display: none !important;
+            width: 0 !important;
+            min-width: 0 !important;
+        }
+
+        /* Editor Control Pane: full width */
+        [class*="ControlPane"],
+        [class*="controlPane"],
+        [class*="EditorControlPane"] {
             width: 100% !important;
-            max-width: 100% !important;
-            padding: 10px !important;
+            max-width: 100vw !important;
+            min-width: 0 !important;
+            padding: 12px !important;
+            box-sizing: border-box !important;
         }
 
-        /* Toolbar stacking */
-        [class*="Editor-Editor-toolbar"] {
+        /* ---- Toolbar ---- */
+        [class*="Toolbar"],
+        [class*="toolbar"] {
             flex-wrap: wrap !important;
             height: auto !important;
-            padding: 10px !important;
+            min-height: 48px !important;
+            padding: 8px 12px !important;
+            gap: 8px !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
         }
 
-        [class*="Toolbar-Toolbar-container"] {
-            flex-wrap: wrap !important;
-            gap: 10px !important;
+        /* Shrink toolbar text */
+        [class*="Toolbar"] span,
+        [class*="toolbar"] span {
+            font-size: 12px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            max-width: 40vw !important;
+        }
+
+        /* ---- App Header ---- */
+        [class*="AppHeader"],
+        header {
+            padding: 8px 12px !important;
             height: auto !important;
+            min-height: 56px !important;
+            justify-content: space-between !important;
+            flex-wrap: nowrap !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
-        /* Header Fixes */
-        [class*="AppHeader-AppHeader-container"] {
-            padding: 10px !important;
-            height: auto !important;
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-        }
-
-        [class*="AppHeader-AppHeader-header-Logo-Logo-logo"],
+        /* Shrink Logo on Mobile */
+        [class*="Logo"],
         .nc-appHeader-logo {
-            margin: 0 auto !important;
+            width: 120px !important;
+            height: 40px !important;
+            margin: 0 !important;
         }
 
-        /* Adjust cards in collections */
-        [class*="Collection-Collection-card"] {
+        /* ---- Collection Cards ---- */
+        [class*="CollectionPage"],
+        [class*="Collection"] {
             width: 100% !important;
-            margin: 0 0 10px 0 !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            padding: 12px !important;
+            box-sizing: border-box !important;
+        }
+
+        [class*="EntryCard"],
+        [class*="entry-card"],
+        [class*="ListCard"] {
+            width: 100% !important;
+            margin: 0 0 12px 0 !important;
+            box-sizing: border-box !important;
         }
     }
 </style>
