@@ -58,6 +58,21 @@
     .nc-login-button:hover {
         background-color: #ffffff !important;
     }
+
+    /* Rename "Collections" to "Settings" in Sidebar */
+    aside h2,
+    [class*="Sidebar-Sidebar-heading"] {
+        font-size: 0 !important;
+    }
+
+    aside h2::after,
+    [class*="Sidebar-Sidebar-heading"]::after {
+        content: "Settings";
+        font-size: 18px !important;
+        font-family: inherit;
+        color: inherit;
+        visibility: visible;
+    }
 </style>
 
 <body>
