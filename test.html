@@ -365,29 +365,7 @@
           House of Milon
         </a>
       </div>
-
-      <!-- Watch Video Button -->
-      <button id="play-video-btn"
-        class="mt-8 flex items-center justify-center space-x-2 mx-auto text-[#F4F0EB] hover:text-[#A88B68] transition-colors duration-300 group">
-        <iconify-icon icon="solar:play-circle-outline" class="text-3xl"></iconify-icon>
-        <span class="text-xs uppercase tracking-[0.2em] font-medium">Watch the Film</span>
-      </button>
-
     </div>
-
-    <!-- Video Modal -->
-    <div id="video-modal"
-      class="fixed inset-0 z-[100] hidden items-center justify-center bg-[#121212]/95 backdrop-blur-sm opacity-0 transition-opacity duration-500">
-      <button id="close-video-btn"
-        class="absolute top-6 right-6 text-[#F4F0EB] hover:text-[#A88B68] transition-colors duration-300 z-50">
-        <iconify-icon icon="solar:close-circle-line-duotone" class="text-4xl"></iconify-icon>
-      </button>
-      <div class="relative w-full max-w-5xl aspect-video px-4 shadow-2xl">
-        <iframe id="hero-video-full" src="" class="w-full h-full border-0 absolute top-0 left-0"
-          allow="autoplay; fullscreen; encrypted-media"></iframe>
-      </div>
-    </div>
-
   </header>
 
   <!-- Scroll Indicator -->
@@ -1237,33 +1215,6 @@
         }
         if (mobileVideo && data.mobile) {
           mobileVideo.src = data.mobile;
-        }
-
-        // Full Video logic
-        const fullVideoIframe = document.getElementById('hero-video-full');
-        const playBtn = document.getElementById('play-video-btn');
-        const closeBtn = document.getElementById('close-video-btn');
-        const modal = document.getElementById('video-modal');
-
-        if (fullVideoIframe && playBtn && modal && data.full_video) {
-          playBtn.addEventListener('click', () => {
-            fullVideoIframe.src = data.full_video; // Load dynamically to prevent autoplay in background
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            // small delay to allow display to change before animating opacity
-            setTimeout(() => modal.classList.remove('opacity-0'), 50);
-          });
-
-          closeBtn.addEventListener('click', () => {
-            modal.classList.add('opacity-0');
-            setTimeout(() => {
-              modal.classList.add('hidden');
-              modal.classList.remove('flex');
-              fullVideoIframe.src = ''; // Stop video playback
-            }, 500); // match transition duration
-          });
-        } else if (playBtn && !data.full_video) {
-          playBtn.style.display = 'none'; // hide button if no video configured in CMS
         }
 
       } catch (error) {

@@ -64,6 +64,5 @@ collections:
         name: "hero"
         file: "content/videos.json"
         fields:
-          - {label: "Desktop Video URL (YouTube Embed)", name: "desktop", widget: "string"}
-          - {label: "Mobile Video URL (YouTube Embed)", name: "mobile", widget: "string"}
-          - {label: "Full Feature Video (Click to Watch - YouTube Embed URL)", name: "full_video", widget: "string", required: false}
+          - {label: "Desktop Video URL (YouTube Embed)", name: "desktop", widget: "youtube"}
+          - {label: "Mobile Video URL (YouTube Embed)", name: "mobile", widget: "youtube"}
