@@ -8,11 +8,12 @@ media_folder: "assets" # Folder where uploaded files will be saved relative to b
 public_folder: "assets" # The base path for uploaded files when they are served
 
 collections:
-  - name: "architects"
-    label: "Architects (Coaches)"
-    # We will save this as a single JSON file instead of multiple markdown files
+  - name: "content"
+    label: "Website Content"
+    # We group all editable JSON files under this single collection 
+    # so they all appear on one page in the CMS sidebar.
     files:
-      - label: "Coaches Slider"
+      - label: "Architects (Coaches)"
         name: "coaches"
         file: "content/architects.json"
         fields:
@@ -25,10 +26,7 @@ collections:
               - {label: "Quote", name: "quote", widget: "text"}
               - {label: "Photograph", name: "image", widget: "image"}
 
-  - name: "programs"
-    label: "Program Tiers (Atelier)"
-    files:
-      - label: "Atelier Cards"
+      - label: "Program Tiers (Atelier)"
         name: "tiers"
         file: "content/program_tiers.json"
         fields:
@@ -42,10 +40,7 @@ collections:
               - {label: "Description", name: "description", widget: "text"}
               - {label: "Iconify Name", name: "icon", widget: "string"}
 
-  - name: "faq"
-    label: "Common Questions"
-    files:
-      - label: "FAQ Items"
+      - label: "Common Questions (FAQ)"
         name: "questions"
         file: "content/faq.json"
         fields:
