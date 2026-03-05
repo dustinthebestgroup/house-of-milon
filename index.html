@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House of Milon | Coming Soon</title>
+  <meta name="description"
+    content="A luxury training house blending high-performance coaching with restorative calm. Progressive overload in a refined setting.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    body,
+    p,
+    a,
+    button,
+    .font-body {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      animation: fadeIn 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="antialiased selection:bg-[#A88B68] selection:text-[#121212] text-[#F4F0EB] bg-[#121212] h-screen flex flex-col items-center justify-center relative overflow-hidden">
+
+  <!-- Background Image with Dark Overlay -->
+  <div class="absolute inset-0 z-0 fade-in select-none pointer-events-none">
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2940&auto=format&fit=crop"
+      alt="Architectural Gym" class="w-full h-full object-cover object-center grayscale mix-blend-overlay opacity-20">
+    <div class="bg-gradient-to-b from-[#121212]/90 via-[#121212]/80 to-[#121212] absolute inset-0 z-10"></div>
+  </div>
+
+  <div class="z-10 text-center px-6 relative max-w-2xl flex flex-col items-center fade-in"
+    style="animation-delay: 0.3s">
+    <!-- Logo -->
+    <div class="flex items-center justify-center mb-12">
+      <img
+        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b9d77d2c-3756-4635-b618-55af31e29427_320w.png"
+        alt="House of Milon Logo" class="w-auto h-12 md:h-14 object-contain scale-125 opacity-90">
+    </div>
+
+    <!-- Message -->
+    <h1 class="text-4xl md:text-6xl font-light italic font-display text-[#F4F0EB] mb-6 tracking-tight">
+      Under Construction.
+    </h1>
+
+    <div class="w-12 h-[1px] mx-auto mb-8 bg-[#973f55]"></div>
+
+    <p class="text-sm md:text-base font-light text-[#F4F0EB]/60 leading-relaxed max-w-md mx-auto">
+      The House of Progressive Strength is being forged. We are currently architecting a new digital experience and will
+      return shortly.
+    </p>
+
+    <!-- Subtle Accent Icon -->
+    <iconify-icon icon="solar:settings-bold-duotone" width="24" class="text-[#A88B68] mt-12 opacity-60"></iconify-icon>
+  </div>
+
+</body>
+
+</html>

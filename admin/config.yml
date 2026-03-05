@@ -1,0 +1,56 @@
+backend:
+  # This configures Decap CMS to use a Git repository (will be configured later)
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master/main)
+
+media_folder: "assets" # Folder where uploaded files will be saved relative to base
+public_folder: "assets" # The base path for uploaded files when they are served
+
+collections:
+  - name: "architects"
+    label: "Architects (Coaches)"
+    # We will save this as a single JSON file instead of multiple markdown files
+    files:
+      - label: "Coaches Slider"
+        name: "coaches"
+        file: "content/architects.json"
+        fields:
+          - label: "Coaches List"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role/Title", name: "title", widget: "string"}
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Photograph", name: "image", widget: "image"}
+
+  - name: "programs"
+    label: "Program Tiers (Atelier)"
+    files:
+      - label: "Atelier Cards"
+        name: "tiers"
+        file: "content/program_tiers.json"
+        fields:
+          - label: "Program Cards"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Floor Prefix (e.g. 4F)", name: "floor", widget: "string"}
+              - {label: "Section Name (e.g. The Forge)", name: "section", widget: "string"}
+              - {label: "Sub-title", name: "subtitle", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Iconify Name", name: "icon", widget: "string"}
+
+  - name: "faq"
+    label: "Common Questions"
+    files:
+      - label: "FAQ Items"
+        name: "questions"
+        file: "content/faq.json"
+        fields:
+          - label: "Questions List"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "text"}
