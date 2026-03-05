@@ -9,49 +9,50 @@ media_folder: "assets" # Folder where uploaded files will be saved relative to b
 public_folder: "assets" # The base path for uploaded files when they are served
 
 collections:
-  - name: "content"
-    label: "Website Content"
-    # We group all editable JSON files under this single collection 
-    # so they all appear on one page in the CMS sidebar.
+  - name: "architects"
+    label: "Architects (Coaches)"
+    # We will save this as a single JSON file instead of multiple markdown files
     files:
-      - label: "Homepage Configurations"
-        name: "homepage"
-        file: "content/data.json"
+      - label: "Coaches Slider"
+        name: "coaches"
+        file: "content/architects.json"
         fields:
-          - label: "Architects (Coaches)"
-            name: "coaches"
-            widget: "object"
+          - label: "Coaches List"
+            name: "items"
+            widget: "list"
             fields:
-              - label: "Coaches List"
-                name: "items"
-                widget: "list"
-                fields:
-                  - {label: "Name", name: "name", widget: "string"}
-                  - {label: "Role/Title", name: "title", widget: "string"}
-                  - {label: "Quote", name: "quote", widget: "text"}
-                  - {label: "Photograph", name: "image", widget: "image"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role/Title", name: "title", widget: "string"}
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Photograph", name: "image", widget: "image"}
 
-          - label: "Program Tiers (Atelier)"
-            name: "tiers"
-            widget: "object"
+  - name: "programs"
+    label: "Program Tiers (Atelier)"
+    files:
+      - label: "Atelier Cards"
+        name: "tiers"
+        file: "content/program_tiers.json"
+        fields:
+          - label: "Program Cards"
+            name: "items"
+            widget: "list"
             fields:
-              - label: "Program Cards"
-                name: "items"
-                widget: "list"
-                fields:
-                  - {label: "Floor Prefix (e.g. 4F)", name: "floor", widget: "string"}
-                  - {label: "Section Name (e.g. The Forge)", name: "section", widget: "string"}
-                  - {label: "Sub-title", name: "subtitle", widget: "string"}
-                  - {label: "Description", name: "description", widget: "text"}
-                  - {label: "Iconify Name", name: "icon", widget: "string"}
+              - {label: "Floor Prefix (e.g. 4F)", name: "floor", widget: "string"}
+              - {label: "Section Name (e.g. The Forge)", name: "section", widget: "string"}
+              - {label: "Sub-title", name: "subtitle", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Iconify Name", name: "icon", widget: "string"}
 
-          - label: "Common Questions (FAQ)"
-            name: "questions"
-            widget: "object"
+  - name: "faq"
+    label: "Common Questions"
+    files:
+      - label: "FAQ Items"
+        name: "questions"
+        file: "content/faq.json"
+        fields:
+          - label: "Questions List"
+            name: "items"
+            widget: "list"
             fields:
-              - label: "Questions List"
-                name: "items"
-                widget: "list"
-                fields:
-                  - {label: "Question", name: "question", widget: "string"}
-                  - {label: "Answer", name: "answer", widget: "text"}
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "text"}

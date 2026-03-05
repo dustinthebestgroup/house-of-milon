@@ -1037,15 +1037,14 @@
     // Fetch and Render Architects
     async function loadArchitects() {
       try {
-        const response = await fetch('./content/data.json');
-        const fullData = await response.json();
-        const coaches = fullData.coaches.items;
+        const response = await fetch('./content/architects.json');
+        const data = await response.json();
         const track = document.getElementById('coaches-track');
         if (!track) return;
 
         track.innerHTML = ''; // Clear container
 
-        coaches.forEach((coach, index) => {
+        data.items.forEach((coach, index) => {
           const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : index === 2 ? 'delay-300' : '';
 
           const coachHTML = `
@@ -1088,7 +1087,7 @@
         document.querySelectorAll('#coaches-track .reveal-on-scroll').forEach(el => observer.observe(el));
 
         // Update slider logic total slides
-        window.totalSlides = coaches.length;
+        window.totalSlides = data.items.length;
         window.maxIndex = window.totalSlides - window.slidesVisible;
 
       } catch (error) {
@@ -1101,15 +1100,14 @@
     // Fetch and Render Program Tiers
     async function loadPrograms() {
       try {
-        const response = await fetch('./content/data.json');
-        const fullData = await response.json();
-        const tiers = fullData.tiers.items;
+        const response = await fetch('./content/program_tiers.json');
+        const data = await response.json();
         const grid = document.getElementById('program-tiers-grid');
         if (!grid) return;
 
         grid.innerHTML = ''; // Clear container
 
-        tiers.forEach((tier, index) => {
+        data.items.forEach((tier, index) => {
           const delayClass = `delay-${(index % 4) * 100 + 100}`;
 
           const tierHTML = `
@@ -1158,15 +1156,14 @@
     // Fetch and Render FAQs
     async function loadFAQs() {
       try {
-        const response = await fetch('./content/data.json');
-        const fullData = await response.json();
-        const faqs = fullData.questions.items;
+        const response = await fetch('./content/faq.json');
+        const data = await response.json();
         const list = document.getElementById('faq-list');
         if (!list) return;
 
         list.innerHTML = ''; // Clear container
 
-        faqs.forEach((faq, index) => {
+        data.items.forEach((faq, index) => {
           const delayClass = `delay-${(index % 4) * 100}`;
 
           const faqHTML = `
